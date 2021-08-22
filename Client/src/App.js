@@ -4,6 +4,7 @@ import './App.css';
 import LandingPage from './components/LandingPage.js/LandingPage';
 import Login from './components/LoginPage/Login';
 import RegisterPage from './components/RegisterPage/Register';
+import Auth from './hoc/auth';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,7 +17,7 @@ const App = () => {
       <Router>
         <div>
           <Switch>
-            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/" component={Auth(LandingPage, null)} />
             <Route  path="/login" component={Login} />
             <Route  path="/register" component={RegisterPage} />
           </Switch>

@@ -4,7 +4,7 @@ const port = 5000
 const mongoose = require('mongoose')
 const config = require('./config/key');
 const cookieParser = require('cookie-parser');
-/*const { auth } = require('./middleware/auth');*/
+const { auth } = require('./middleware/auth');
 const { User } = require("./models/User");
 
 mongoose.connect(config.mongoURI, {
