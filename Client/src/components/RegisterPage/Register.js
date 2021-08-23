@@ -75,4 +75,4 @@ const RegisterPage = (props) => {
     )
 }
 
-export default RegisterPage
+export default withRouter(RegisterPage);

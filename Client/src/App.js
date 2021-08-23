@@ -9,7 +9,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 const App = () => {
@@ -18,8 +17,8 @@ const App = () => {
         <div>
           <Switch>
             <Route exact path="/" component={Auth(LandingPage, null)} />
-            <Route  path="/login" component={Login} />
-            <Route  path="/register" component={RegisterPage} />
+            <Route  path="/login" component={Auth(Login, false)} />
+            <Route  path="/register" component={Auth(RegisterPage, false)} />
           </Switch>
         </div>
       </Router>

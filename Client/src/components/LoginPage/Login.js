@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { loginUser } from '../../action/user_action';
 import { useDispatch } from 'react-redux';
+import { withRouter } from 'react-router';
+
 
 
 const Login = (props) => {
@@ -21,15 +23,16 @@ const Login = (props) => {
             email : id,
             password 
         }
-
+        
         dispatch(loginUser(body))
         .then(response => {
+            console.log(response);
             if (response.payload.loginSuccess) {
-                alert('환영합니다');
+                props.history.push('/');
             } else alert(response.payload.message);
-
-           
         })
+        
+      
 
         
     }
@@ -57,4 +60,4 @@ const Login = (props) => {
     )
 }
 
-export default Login;
+export default withRouter(Login);

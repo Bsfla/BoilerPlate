@@ -1,24 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import rootReducer from './reducers/rootReducer';
+import {Provider} from 'react-redux'; 
+import { composeWithDevTools } from 'redux-devtools-extension'; 
 import { applyMiddleware, createStore } from 'redux';
-import { Provider } from 'react-redux';
-import ReduxThunk from 'redux-thunk';
 import promiseMiddleware from 'redux-promise';
+import ReduxThunk from 'redux-thunk';
+import rootReducer from './reducers/rootReducer';
+
 const store = createStore(rootReducer, composeWithDevTools(
-  applyMiddleware(promiseMiddleware, ReduxThunk)
-));
+  applyMiddleware(promiseMiddleware, ReduxThunk)));
 
 ReactDOM.render(
   <Provider store={store}>
-   <React.StrictMode>
-    <App />
-   </React.StrictMode>,
-   </Provider>,
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>,
+
   document.getElementById('root')
 );
 
